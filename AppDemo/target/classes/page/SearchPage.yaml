@@ -1,0 +1,21 @@
+methods:
+  search:
+    steps:
+      - xpath: //android.widget.EditText
+        send: ${keyword}
+      - id: stockName
+
+  getCurrentPrice:
+    steps:
+      - id: stock_current_price
+        get: text
+        dump: price
+
+
+  backSearchPage:
+    steps:
+      - id: action_back
+  backAppPage:
+    steps:
+      - id: SnowBall, Navigate up
+

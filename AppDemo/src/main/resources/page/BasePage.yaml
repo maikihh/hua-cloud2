@@ -1,0 +1,7 @@
+search:
+  steps:
+    - id: home_search
+    - id: //android.widget.EditText
+      send: hengda
+    - id: stockName
+
