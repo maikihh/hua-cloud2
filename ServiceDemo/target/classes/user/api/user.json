@@ -1,0 +1,40 @@
+{
+  "errcode": 0,
+  "errmsg": "ok",
+  "userid": "{{userid}}",
+  "name": "{{name}}",
+  "department": [
+    2
+  ],
+  "position": "测试开发工程师",
+  "mobile": "{{mobile}}",
+  "gender": "1",
+  "email": "{{mobile}}@163.com",
+  "avatar": "",
+  "status": 4,
+  "isleader": 0,
+  "extattr": {
+    "attrs": [
+
+    ]
+  },
+  "telephone": "",
+  "enable": 1,
+  "hide_mobile": 0,
+  "order": [
+    4096
+  ],
+  "external_profile": {
+    "external_attr": [
+
+    ],
+    "external_corp_name": ""
+  },
+  "qr_code": "https://open.work.weixin.qq.com/wwopen/userQRCode?vcode=vc316ea0440b567081",
+  "alias": "",
+  "is_leader_in_dept": [
+    0
+  ],
+  "address": "深圳市南山区科技园",
+  "thumb_avatar": ""
+}
