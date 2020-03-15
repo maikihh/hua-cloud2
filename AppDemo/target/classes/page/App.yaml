@@ -1,5 +1,0 @@
-methods:
-  toSearchPage:
-    steps:
-      - id: home_search
-
