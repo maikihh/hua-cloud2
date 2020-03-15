@@ -1,7 +1,57 @@
 methods:
+  gettoken:
+    params:
+      corpid: wwa3a4c9ecbda6afc4
+      corpsecret: WJJbgmw_1Bojpmu93HkFKFq9Ol4W86wMgcrxW-rbelU
+    method: get
+    url: https://qyapi.weixin.qq.com/cgi-bin/gettoken
+
   get:
-    query:
-       userid: ${userid}
-    #   userid: lisi
+    params:
+      userid: fk
     method: get
     url: https://qyapi.weixin.qq.com/cgi-bin/user/get
+
+  create:
+    postBody:
+      userid: cvs
+      name: cvs666
+      mobile: 12345678999
+      department: 1
+    method: post
+    url: https://qyapi.weixin.qq.com/cgi-bin/user/create
+
+  update:
+    postBody:
+      userid: cvs
+      name: cvs777
+      mobile: 12345678999
+      department: 1
+    method: post
+    url: https://qyapi.weixin.qq.com/cgi-bin/user/update
+
+  delete:
+    params:
+      userid: cvs
+    method: get
+    url: https://qyapi.weixin.qq.com/cgi-bin/user/delete
+
+  batchdelete:
+    postBody:
+      useridlist: [andy, aa]
+    method: post
+    url: https://qyapi.weixin.qq.com/cgi-bin/user/batchdelete
+
+  simplelist:
+    params:
+      department_id: 2
+      fetch_child: 0
+    method: get
+    url: https://qyapi.weixin.qq.com/cgi-bin/user/simplelist
+
+  list:
+    params:
+      department_id: 2
+      fetch_child: 0
+    method: get
+    url: https://qyapi.weixin.qq.com/cgi-bin/user/list

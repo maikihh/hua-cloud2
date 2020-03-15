@@ -15,9 +15,11 @@ public class ApiObjectModel {
         return  getMethods(method).run();
     }
 
+/*
     public Response run(String method, HashMap<String, Object> params){
         return getMethods(method).run(params);
     }
+*/
 
 
 

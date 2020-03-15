@@ -1,14 +1,43 @@
 package department;
 
 import io.restassured.http.ContentType;
+import org.junit.jupiter.api.Test;
 
 import java.util.HashMap;
 
 import static io.restassured.RestAssured.given;
-import static org.hamcrest.Matchers.equalTo;
+import static org.hamcrest.Matchers.*;
 
 public class TestClassicDepartment {
     static String token;
+
+    @Test
+    public void testJson(){
+        given()
+                .when().get("http://192.168.80.128:8000/test.json")
+                .then()
+                .body("store.book.category", hasItems("reference"))
+                .body("store.book[0].author", equalTo("Nigel Rees"))
+                .body("store.book.findAll { book -> book.price >= 5 && book.price <= 10}.author", hasItems("Nigel Rees","Herman Melville"))
+                .body("store.book.find { book -> book.price == 8.95f }.author", equalTo("Nigel Rees"));
+    }
+
+    @Test
+    public void testXml(){
+        given()
+                .when().get("http://192.168.80.128:8000/test.xml")
+                .then()
+                .body("shopping.category.item[0].name", equalTo("Chocolate"))
+                .body("shopping.category[2].item.size()", equalTo(1))
+                .body("shopping.category[1].item[1].name", equalTo("Pens"))
+                .body("shopping.category.findAll { it.@type == 'groceries' }.size()", equalTo(1))
+                .body("shopping.category.item.findAll { item -> def price = item.price.toFloat(); price >= 0 && price <= 10 }.name", hasItems("Chocolate", "Paper"))
+                .body("**.find { it.name == 'Chocolate' }.price", equalTo("10"))
+        ;
+    }
+
+
+
 
     public void getToken() {
         token = given()

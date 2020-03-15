@@ -24,6 +24,7 @@ import static org.junit.jupiter.params.provider.Arguments.arguments;
 public class TestUser {
 
 
+
     @Test
     public void get(){
         User user = new User();

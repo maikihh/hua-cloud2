@@ -6,16 +6,15 @@ import framework.ApiObjectModel;
 import io.restassured.response.Response;
 
 import java.io.IOException;
-import java.util.HashMap;
 
 public class BaseApi {
     ApiObjectModel apiObjectModel = new ApiObjectModel();
-    HashMap<String, Object> params;
+ //   public HashMap<String, Object> params;
 
 
     public Response parseMethod(){
         String method = Thread.currentThread().getStackTrace()[2].getMethodName();
-        System.out.println(method);
+        System.out.println("调用的方法的名称是：" + method);
         String path = "/" + this.getClass().getCanonicalName().replace('.', '/') + ".yaml";
         System.out.println(path);
         ObjectMapper mapper = new ObjectMapper(new YAMLFactory());
@@ -27,11 +26,12 @@ public class BaseApi {
             e.printStackTrace();
         }
 
-        return apiObjectModel.run(method, params);
+      //  return apiObjectModel.run(method, params);
+          return apiObjectModel.run(method);
     }
 
-    public void setParams(HashMap<String, Object> params){
+/*    public void setParams(HashMap<String, Object> params){
         this.params = params;
-    }
+    }*/
 
 }

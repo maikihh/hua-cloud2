@@ -52,7 +52,6 @@ public class User {
     public Response clone(String userid, HashMap<String, Object> userData) {
         userData.put("userid", userid);
         String body = template("/user/api/user.json", userData);
-
         return given()
                 .queryParam("access_token", WeWork.getInstance().getToken())
                 .contentType(ContentType.JSON)
